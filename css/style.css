@@ -1,0 +1,574 @@
+/** photo-buckets-css */
+
+:root {
+	--primary-color: #6b4c29;
+	--secondary-color: #fffafb;
+	--tertiary-color: #e1dbd3;
+	--quaternary-color: #fff;
+	--fifth-color: #3085a3;
+	--sixth-color: #162633;
+	--eigth-color: #3e3a3ebe;
+	--ninth-color: #f5f5f5;
+
+	--primary-font-family: 'Sancreek', serif;
+	--secondary-font-family: 'Raleway';
+	--tertiary-font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (min-width: 1023px) {
+	.main-album-archive,
+	.album-page-single {
+		display: flex;
+		flex-direction: column;
+		width: 100rem;
+	}
+}
+
+.main-album-archive {
+	background-color: var(--tertiary-color) !important;
+}
+
+.album-page-single {
+	background-color: var(--secondary-color);
+}
+
+.column-12,
+.column-4 {
+	float: left;
+	padding: 15px;
+}
+
+.column-4 {
+	width: 33.33333333333333%;
+}
+
+.column-12,
+.wrapper-full {
+	width: 100%;
+}
+
+.custom-row::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.wrapper {
+	max-width: 1140px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.effect {
+	margin: auto;
+	box-shadow: 0 0 15px 5px rgba(0, 0, 0, .07);
+	background-color: var(--quaternary-color);
+	border: 5px solid var(--quaternary-color);
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+}
+
+/* Add the overlay effect */
+.column-4 .effect::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Remove the overlay effect on hover */
+.column-4 .effect:hover::before {
+	background-color: transparent;
+}
+
+.tab .effect {
+	position: relative;
+	overflow: hidden;
+	max-height: 240px;
+	max-width: 350px;
+	background: var(--fifth-color);
+	text-align: center;
+	cursor: pointer;
+}
+
+.tab .effect .tab-text {
+	padding: 2em;
+	color: var(--quaternary-color);
+	text-transform: uppercase;
+	font-size: 1.25rem;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.tab .tab-text h2 {
+	color: var(--quaternary-color);
+	margin: 0;
+	font-size: 1.5rem;
+}
+
+.tab .tab-text h2,
+#style_5 > div > div > div > div > div > div > div > h2 {
+	font-family: var(--tertiary-font-family);
+	font-weight: 400;
+	font-style: normal;
+}
+
+#style_5 > div > div > div > div > div > div > div > p > a {
+	text-decoration: none;
+}
+
+.tab-text p {
+	color: var(--quaternary-color);
+	margin: 0;
+	font-size: 1rem;
+}
+
+/* Media queries for tablets (3*2 layout) */
+@media (max-width: 1023px) {
+	.column-4 {
+		width: calc(50% - 30px);
+	}
+
+	.column-md-6 {
+		width: 50%;
+		float: left;
+		padding: 15px;
+	}
+}
+
+/* Media queries for smaller devices (6*1 layout) */
+@media (max-width: 767px) {
+	.column-4 {
+		width: calc(100% - 30px);
+	}
+
+	.column-xs-12 {
+		float: left;
+		padding: 15px;
+	}
+
+	.column-xs-12 {
+		width: 100%;
+	}
+	.effectTab-header .title::before {
+		width: 125%;
+		left: 15%;
+	}
+	.tab-container {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+}
+
+.tab-text h2 {
+	font-weight: 900 !important;
+	font-size: 1.5rem !important;
+}
+
+.effect.effect-five h2 {
+	font-family: Oswald;
+}
+
+.effect.effect-five {
+	background: var(--sixth-color);
+	text-align: left;
+}
+
+.col3-block-height {
+	min-height: 480px !important;
+}
+
+.effect.effect-five h2 {
+	transform: translate3d(0, 20px, 0);
+	transition: all .35s;
+	-webkit-transform: translate3d(0, 20px, 0);
+	-webkit-transition: all .35s;
+}
+
+.effect.effect-five:hover h2 {
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	opacity: .6;
+}
+
+.effect.effect-five .tab-text:before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 180%;
+	background-image: url("https://danvillehardwood.com/wp-content/uploads/2024/02/ivan-bandura-bav73b2bp9o-unsplash.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: .8;
+	transform-origin: 0 100%;
+	transform: rotate(90deg);
+	transition: all .35s;
+	-webkit-transform-origin: 0 100%;
+	-webkit-transform: rotate(90deg);
+	-webkit-transition: all .35s;
+}
+
+.effect.effect-five:hover .tab-text:before {
+	transform: rotate(67deg);
+	-webkit-transform: rotate(67deg);
+}
+
+@media (max-width: 1024px) {
+	.effect.effect-five .tab-text:before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100vw;
+		height: 180%;
+		background-image: url("https://danvillehardwood.com/wp-content/uploads/2024/02/ivan-bandura-bav73b2bp9o-unsplash.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: .8;
+		transform-origin: 0 100%;
+		transform: rotate(90deg);
+		transition: all .35s;
+		-webkit-transform-origin: 0 100%;
+		-webkit-transform: rotate(90deg);
+		-webkit-transition: all .35s;
+	}
+
+	.effect.effect-five .tab-text:before {
+		transform: rotate(67deg);
+		-webkit-transform: rotate(67deg);
+	}
+
+	.tab-text h2 {
+		font-size: 1.5rem !important;
+	}
+	.effect.effect-five p a {
+		color: var(--quaternary-color);
+		margin: 0 5px;
+	}
+}
+
+.effect.effect-five p {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 0 15px 25px 0;
+}
+
+.effect.effect-five p a {
+	color: var(--quaternary-color);
+	margin: 0 5px;
+}
+
+.effect.effect-five p a:hover {
+	color: var(--tertiary-color);
+}
+
+@media (min-width: 1025px) {
+	.effect.effect-five p a i {
+		opacity: 0;
+		font-size: 120%;
+		transform: translate3d(0, 50px, 0);
+		transition: all .35s;
+		-webkit-transform: translate3d(0, 50px, 0);
+		-webkit-transition: all .35s;
+	}
+
+	.effect.effect-five:hover p a i {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+
+	.effect.effect-five:hover p a i {
+		transition-delay: .15s;
+		-webkit-transition-delay: .15s;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	.tab .effect .tab-text h2 {
+		font-size: 1.3rem !important;
+		/* font-family: var(--quaternary-font-family); */
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.effect h2 {
+		font-size: 1.3rem !important;
+	}
+}
+
+/* DEFINING STYLES FOR TAB BAR CONTAINER */
+.tab-bar {
+	background: url("https://danvillehardwood.com/wp-content/uploads/2024/02/matt-artz-4Sxnm0LDn04-unsplash1.png")
+		center/cover no-repeat;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	align-items: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+/* Defining styles for the individual tab links */
+.tab-bar a {
+	text-decoration: none;
+	text-align: center;
+	padding: .5rem;
+	color: var(--primary-color);
+	text-transform: uppercase;
+	font-weight: 600;
+	display: inline-block;
+	line-height: 1.2rem;
+}
+
+/* Changing text color on hover */
+.tab-bar a:hover {
+	color: rgba(107, 76, 41, 0.8);
+}
+
+/* Adding the underline effect on active tab */
+nav.tab-bar a.current {
+	text-decoration: underline !important;
+}
+
+.tab-bar {
+	display: flex;
+	justify-content: center;
+}
+
+@media (max-width: 854px) {
+	.tab-bar a {
+		font-size: small;
+	}
+}
+
+/* Hide the toggle button on larger screens */
+@media (min-width: 768px) {
+	.accordion-toggle {
+		display: none;
+	}
+	.tab-bar a {
+		display: inline-block !important;
+	}
+}
+
+/* Show the toggle button and hide the links on smaller screens */
+@media (max-width: 767px) {
+	.accordion-toggle {
+		display: block;
+		float: right;
+	}
+	.tab-bar a {
+		display: none;
+	}
+	.tab-bar.open a {
+		display: block;
+	}
+	.tab-bar {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.toggle-container {
+	background-color: rgba(255, 255, 255, 0.494);
+	height: 4rem;
+}
+
+.accordion-toggle {
+	background-color: transparent;
+	border: none;
+}
+
+.tab-bar {
+	height: 4rem;
+}
+
+.tab-bar.open {
+	/* height: 21.5rem; */
+	height: 19rem;
+}
+
+.menu-text-portfolio {
+	font-weight: 900;
+	display: none;
+	color: var(--primary-color);
+}
+
+@media (max-width: 767px) {
+	.toggle-container {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		align-items: center;
+	}
+	.menu-text-portfolio {
+		display: block;
+	}
+}
+
+.menu-text-portfolio,
+.accordion-toggle {
+	margin-right: .5rem;
+	margin-left: .5rem;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
+	padding-bottom: 1rem;
+}
+
+#fancybox-wrapper img#fancybox-image {
+	width: 100%;
+	/* 320px */
+	height: 20rem;
+	max-height: 30rem;
+}
+
+.no-photos-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	text-align: center;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+}
+
+/* Media query for tablet and smaller screen sizes */
+@media (min-width: 768px) and (max-width: 820px) {
+	.gallery {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 767px) {
+	.gallery {
+		grid-template-columns: 1fr;
+	}
+}
+
+.gallery a {
+	position: relative;
+	display: block;
+}
+
+.gallery a::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.gallery a::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2rem;
+	height: 2rem;
+	margin-top: -1rem;
+	margin-left: -1rem;
+	background: url(https://i.ibb.co/3fMkjjF/Resize.png) center center no-repeat;
+	background-size: contain;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.gallery a:hover::before,
+.gallery a:hover::after {
+	opacity: 1;
+}
+
+.image-label-portfolio {
+	background: url("https://danvillehardwood.com/wp-content/uploads/2024/06/pexels-fwstudio-33348-163999-1-scaled-horizontal.jpg")
+		center/cover no-repeat;
+	margin-bottom: 0 !important;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0;
+	color: var(--quaternary-color);
+	text-transform: uppercase;
+	font-weight: 600;
+	overflow: auto;
+	text-align: center;
+}
+
+.image-label-portfolio,
+.title-bar {
+	text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+#image-container p.image-label-portfolio {
+	padding: 0 1rem !important;
+	line-height: normal !important;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+	.image-label-portfolio {
+		padding: 0 1rem;
+		line-height: normal;
+	}
+}
+
+/** DEFINING STYLES FOR TITLE BAR */
+
+.title-bar {
+	background-image: url(https://danvillehardwood.com/wp-content/uploads/2024/04/pexels-fwstudio-33348-163999-1-scaled.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	height: 200px;
+	width: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.title-bar h1 {
+	font-size: 4rem;
+	color: var(--quaternary-color);
+	text-align: center;
+	font-family: var(--primary-font-family);
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.05;
+	letter-spacing: -1px;
+	font-style: normal;
+}
+
+.title-bar h1#album-name {
+	margin-bottom: 0 !important;
+}
+
+.title-bar h2#album-subtitle {
+	font-family: var(--secondary-font-family);
+	color: var(--quaternary-color);
+}
