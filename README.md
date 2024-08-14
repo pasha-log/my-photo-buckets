@@ -1,7 +1,7 @@
 ## WordPress My Photo Buckets Plugin
 **Description**
 * Designed a custom WordPress plugin using the WordPress API.
-* Optimized the plugin for scalability with lazy loading and accessibility with WCAG 2 AA compliance.
+* Optimized the plugin for scalability with lazy loading and thorough accessibility with [WCAG 2.0 AA](https://www.w3.org/WAI/WCAG2AA-Conformance) compliance.
 * Integrated the fancybox.js library.
 * Implemented CRUD (Create, Read, Update, Delete) functions for custom-styled photo albums. Seamlessly integrated with [WordPress’s built-in gallery](https://developer.wordpress.org/themes/functionality/media/galleries/) creation feature.
 
@@ -22,6 +22,11 @@ The photo album directory.
 
 Inside a photo album.
 <img src='./screenshots/Screenshot (471).png' alt=''>
+
+---
+
+The Fancybox modal when active.
+<img src='./screenshots/Screenshot (500).png' alt=''>
 
 ---
 
