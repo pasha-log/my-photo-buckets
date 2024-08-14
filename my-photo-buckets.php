@@ -68,13 +68,17 @@ function generate_albums_content() {
         
         foreach ($albums as $album) {
             $thumbnail_url = get_the_post_thumbnail_url($album);
+            $album_link = esc_url(get_permalink($album));
+            $album_title = esc_html($album->post_title);
             $content .= '<div class="column-4 column-xs-12 column-sm-6 column-md-6 box-tab">';
+            $content .= '<a href="' . $album_link . '" aria-label="See photo examples of ' . esc_attr($album_title) . '">';
             $content .= '<div class="effect effect-five col3-block-height" style="background-image: url(' . esc_url($thumbnail_url) . '); background-position: center;">';
             $content .= '<div class="tab-text">';
-            $content .= '<h2>' . esc_html($album->post_title) . '</h2>';
-            $content .= '<p> <a href="' . esc_url(get_permalink($album)) . '"><i><strong aria-label="see photo examples of this service">SEE PHOTOS</strong></i></a> </p>';
+            $content .= '<h2>' . $album_title . '</h2>';
+            $content .= '<p><i><strong>SEE PHOTOS</strong></i></p>';
             $content .= '</div>';
             $content .= '</div>';
+            $content .= '</a>';
             $content .= '</div>';
         }
         
@@ -114,24 +118,47 @@ function get_post_gallery_images_with_info($post) {
 
 // Enqueue necessary styles and scripts
 function mpb_enqueue_scripts() {
-    wp_enqueue_script('portfolio-tabs', plugin_dir_url(__FILE__) . 'js/portfolio-tabs.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('header', plugin_dir_url(__FILE__) . 'js/header.js', array('jquery'), '1.0', true);
+    $script_path = plugin_dir_path(__FILE__) . 'js/portfolio-tabs.js';
+    $script_version = filemtime($script_path);
+    wp_enqueue_script('portfolio-tabs', plugin_dir_url(__FILE__) . 'js/portfolio-tabs.js', array('jquery'), $script_version, true);
+    
+    $header_script_path = plugin_dir_path(__FILE__) . 'js/header.js';
+    $header_script_version = filemtime($header_script_path);
+    wp_enqueue_script('header', plugin_dir_url(__FILE__) . 'js/header.js', array('jquery'), $header_script_version, true);
 
     wp_enqueue_script('fancybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), '5.0', true);
 
-    $inline_script = "
-        document.addEventListener('DOMContentLoaded', function() {
-            Fancybox.bind('[data-fancybox=\"gallery\"]', {
-                // Your options here
+    $inline_script = '
+        document.addEventListener("DOMContentLoaded", function() {
+            Fancybox.bind("[data-fancybox=\"gallery\"]", {
+                on: {
+                    reveal: (fancybox) => {
+                        const container = fancybox.container;
+                        if (container) {
+                            const firstFocusableElement = container.querySelector("a, button, input, [tabindex]:not([tabindex=\'-1\'])");
+                            if (firstFocusableElement) {
+                                firstFocusableElement.focus();
+                            }
+                        }
+                    },
+                    destroy: (fancybox) => {
+                        if (fancybox.trigger) {
+                        console.log("Returning focus to trigger:", fancybox.$trigger);
+                            fancybox.trigger.focus();
+                        }
+                    }
+                }
             });
         });
-    ";
+    ';
     wp_add_inline_script('fancybox', $inline_script);
 }
 add_action('wp_enqueue_scripts', 'mpb_enqueue_scripts');
 
 function mpb_enqueue_styles() {
+    $style_path = plugin_dir_path(__FILE__) . 'css/style.css';
+    $style_version = filemtime($style_path);
     wp_enqueue_style('fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css');
-    wp_enqueue_style('my-photo-buckets', plugin_dir_url(__FILE__) . 'css/style.css');
+    wp_enqueue_style('my-photo-buckets', plugin_dir_url(__FILE__) . 'css/style.css', array(), $style_version);
 }
 add_action('wp_enqueue_scripts', 'mpb_enqueue_styles');

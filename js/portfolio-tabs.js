@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (accordionToggle) {
 		accordionToggle.addEventListener('click', function() {
 			var tabBar = document.querySelector('.tab-bar');
+			var isOpen = tabBar.classList.toggle('open');
 
-			tabBar.classList.toggle('open');
+			accordionToggle.setAttribute('aria-expanded', isOpen);
 
-			// Toggle the SVGs
 			var arrowDown = document.querySelector('.arrow-down');
 			var arrowUp = document.querySelector('.arrow-up');
-			if (tabBar.classList.contains('open')) {
+			if (isOpen) {
 				arrowDown.style.display = 'none';
 				arrowUp.style.display = 'block';
 			} else {

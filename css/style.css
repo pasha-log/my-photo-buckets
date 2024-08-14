@@ -115,14 +115,10 @@
 }
 
 .tab .tab-text h2,
-#style_5 > div > div > div > div > div > div > div > h2 {
+#style_5 > div > div > div > div > div > a > div > div > h2 {
 	font-family: var(--tertiary-font-family);
 	font-weight: 400;
 	font-style: normal;
-}
-
-#style_5 > div > div > div > div > div > div > div > p > a {
-	text-decoration: none;
 }
 
 .tab-text p {
@@ -266,17 +262,17 @@
 	padding: 0 15px 25px 0;
 }
 
-.effect.effect-five p a {
+.effect.effect-five p i {
 	color: var(--quaternary-color);
 	margin: 0 5px;
 }
 
-.effect.effect-five p a:hover {
+.effect.effect-five p i:hover {
 	color: var(--tertiary-color);
 }
 
 @media (min-width: 1025px) {
-	.effect.effect-five p a i {
+	.effect.effect-five p i {
 		opacity: 0;
 		font-size: 120%;
 		transform: translate3d(0, 50px, 0);
@@ -285,13 +281,13 @@
 		-webkit-transition: all .35s;
 	}
 
-	.effect.effect-five:hover p a i {
+	.effect.effect-five:hover p i {
 		opacity: 1;
 		transform: translate3d(0, 0, 0);
 		-webkit-transform: translate3d(0, 0, 0);
 	}
 
-	.effect.effect-five:hover p a i {
+	.effect.effect-five:hover p i {
 		transition-delay: .15s;
 		-webkit-transition-delay: .15s;
 	}
@@ -317,7 +313,6 @@
 	width: 100%;
 	overflow: hidden;
 	position: relative;
-	align-items: center;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
@@ -344,9 +339,10 @@ nav.tab-bar a.current {
 	text-decoration: underline !important;
 }
 
-.tab-bar {
+.tab-bar .album-menu {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 @media (max-width: 854px) {
@@ -360,8 +356,11 @@ nav.tab-bar a.current {
 	.accordion-toggle {
 		display: none;
 	}
-	.tab-bar a {
-		display: inline-block !important;
+
+	.tab-bar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
@@ -371,13 +370,16 @@ nav.tab-bar a.current {
 		display: block;
 		float: right;
 	}
-	.tab-bar a {
+
+	.tab-bar .album-menu {
 		display: none;
 	}
-	.tab-bar.open a {
-		display: block;
+
+	.tab-bar.open .album-menu {
+		display: flex;
 	}
-	.tab-bar {
+
+	.tab-bar .album-menu {
 		flex-direction: column;
 		align-items: center;
 	}
@@ -391,6 +393,12 @@ nav.tab-bar a.current {
 .accordion-toggle {
 	background-color: transparent;
 	border: none;
+}
+
+.accordion-toggle:focus,
+.accordion-toggle:hover,
+.accordion-toggle:active {
+	background-color: transparent;
 }
 
 .tab-bar {
