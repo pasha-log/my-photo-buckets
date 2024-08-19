@@ -17,9 +17,15 @@ get_header();
 
 echo '<div class="album-page-single">';
 
+$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
 // Title bar
-echo '<div class="title-bar">';
+echo '<div class="title-bar" style="background-image: url(' . esc_url($featured_image_url) . ');">';
 echo '<h1 id="album-name" aria-label="the name of the presented service">' . get_the_title() . '</h1>';
+
+$description = get_post_meta(get_the_ID(), '_mpb_album_description', true);
+echo '<p class="album-description">' . esc_html($description) . '</p>';
+
 echo '</div>';
 
 echo '<nav class="tab-bar" role="navigation" aria-label="Photo Albums Navigation">';

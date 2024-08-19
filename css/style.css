@@ -20,7 +20,7 @@
 	.album-page-single {
 		display: flex;
 		flex-direction: column;
-		width: 100rem;
+		width: 100%;
 	}
 }
 
@@ -545,18 +545,41 @@ nav.tab-bar a.current {
 
 /** DEFINING STYLES FOR TITLE BAR */
 
-.title-bar {
+.main-album-archive .title-bar {
 	background-image: url(https://danvillehardwood.com/wp-content/uploads/2024/04/pexels-fwstudio-33348-163999-1-scaled.jpg);
+}
+
+.title-bar {
+	background-position: center bottom;
 	background-size: cover;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
-	height: 200px;
+	height: 16rem;
 	width: 100%;
 	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+}
+
+.title-bar::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 1;
+}
+
+.title-bar h1,
+.title-bar h2#album-subtitle,
+.title-bar p {
+	z-index: 2;
 }
 
 .title-bar h1 {
@@ -576,7 +599,21 @@ nav.tab-bar a.current {
 	margin-bottom: 0 !important;
 }
 
-.title-bar h2#album-subtitle {
+.title-bar h2#album-subtitle,
+.title-bar p {
 	font-family: var(--secondary-font-family);
 	color: var(--quaternary-color);
+}
+
+.title-bar p {
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+@media screen and (width < 400px) {
+	.title-bar h1 {
+		font-size: 3rem;
+	}
 }

@@ -116,6 +116,55 @@ function get_post_gallery_images_with_info($post) {
     return $images_with_info;
 }
 
+// Add custom meta box for album description
+function mpb_add_album_description_meta_box() {
+    add_meta_box(
+        'mpb_album_description',
+        'Album Description',
+        'mpb_album_description_meta_box_callback',
+        'photo_album',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'mpb_add_album_description_meta_box');
+
+// Display the custom field for the album description
+function mpb_album_description_meta_box_callback($post) {
+    wp_nonce_field('mpb_save_album_description', 'mpb_album_description_nonce');
+
+    $description = get_post_meta($post->ID, '_mpb_album_description', true);
+
+    echo '<textarea style="width:100%;height:100px;" id="mpb_album_description" name="mpb_album_description">' . esc_textarea($description) . '</textarea>';
+}
+
+// Save the custom field value for the album description
+function mpb_save_album_description($post_id) {
+    if (!isset($_POST['mpb_album_description_nonce'])) {
+        return $post_id;
+    }
+
+    $nonce = $_POST['mpb_album_description_nonce'];
+
+    if (!wp_verify_nonce($nonce, 'mpb_save_album_description')) {
+        return $post_id;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return $post_id;
+    }
+
+    if ('photo_album' == $_POST['post_type']) {
+        if (!current_user_can('edit_post', $post_id)) {
+            return $post_id;
+        }
+    }
+
+    $description = sanitize_textarea_field($_POST['mpb_album_description']);
+    update_post_meta($post_id, '_mpb_album_description', $description);
+}
+add_action('save_post', 'mpb_save_album_description');
+
 // Enqueue necessary styles and scripts
 function mpb_enqueue_scripts() {
     $script_path = plugin_dir_path(__FILE__) . 'js/portfolio-tabs.js';
