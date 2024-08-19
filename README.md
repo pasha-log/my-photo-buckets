@@ -8,7 +8,7 @@
 * To view the main album directory frontend, one can visit the slug `/photo_album`. Each album box links to it's own permalink with the slug `/photo_album/name-of-your-album`.
 * The photo album directory alone can be deployed anywhere with the shortcode `[album_shortcode]`.
 
-[LIVE DEMO](https://danvillehardwood.com/sandbox/photo_album/)
+[LIVE DEMO](https://danvillehardwood.com/photo_album/)
 
 **Technologies Used:**
 - PHP
